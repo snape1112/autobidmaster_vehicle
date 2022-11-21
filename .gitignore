@@ -1,0 +1,35 @@
+###> IDE ###
+.DS_Store
+/.idea/
+/.vscode
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+!/.env.dist
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> DOCKER ###
+/supervisord.*
+
+###> BUILD ###
+/public/build/
+/data/
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+###> GIT ###
+!.gitkeep
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

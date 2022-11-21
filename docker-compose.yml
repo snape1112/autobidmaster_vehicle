@@ -1,0 +1,25 @@
+version: "3.2"
+
+services:
+    app:
+        build:
+            context: .docker
+        ports:
+            - "8012:80"
+        depends_on:
+            - db
+        volumes:
+            - .:/app:cached
+
+    db:
+        image: mysql:5.7
+        platform: linux/x86_64
+        volumes:
+            - ./docker/my.cnf:/etc/mysql/conf.d/my.cnf
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_USER: root
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: abm
+        ports:
+            - '4306:3306'
