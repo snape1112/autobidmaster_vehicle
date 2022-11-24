@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Vehicle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Vehicle|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,32 +20,23 @@ class VehicleRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicle::class);
     }
 
-    // /**
-    //  * @return Vehicle[] Returns an array of Vehicle objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param mixed[] $params
+     */
+    public function getList(array $params): QueryBuilder
     {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $search = $params['search'] ?? '';
+        $order = $params['order'] ?? 'id';
+        $direction = $params['direction'] ?? 'ASC';
+        $limit = $params['limit'] ?? 20;
+        $offset = $params['offset'] ?? 0;
 
-    /*
-    public function findOneBySomeField($value): ?Vehicle
-    {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->orWhere('v.vin LIKE :val')
+            ->setParameter('val', "%{$search}%")
+            ->orderBy("v.{$order}", $direction)
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
     }
-    */
+
 }
