@@ -8,13 +8,15 @@
 
 3. Added an endpoint to get vehicles list
 
+```
 GET /vehicles
   Query Parameters:
-    - search: Search vehicles who has the value in `vin`
-    - order: Sort vehicles by the given field. ex: `make`, `model` or `sale_date`
-    - direction: Order direction ex: `ASC` or `DESC`
-    - limit: Number of vehicles per page. Default value is 25
-    - offset: Offset of list. Default value is 0
+  - search: Search vehicles who has the value in `vin`
+  - order: Sort vehicles by the given field. ex: `make`, `model` or `sale_date`
+  - direction: Order direction ex: `ASC` or `DESC`
+  - limit: Number of vehicles per page. Default value is 25
+  - offset: Offset of list. Default value is 0
+```
 
 ## Application
 The application should implement the following design/features:  
