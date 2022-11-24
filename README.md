@@ -2,11 +2,11 @@
 
 ## What I Implemented
 
-### Created Vehicle entity
+1. Created Vehicle entity
 
-### Added a new command `loaddata`
+2. Added a new command `loaddata`
 
-### Added an endpoint to get vehicles list
+3. Added an endpoint to get vehicles list
 
 GET /vehicles
   Query Parameters:
