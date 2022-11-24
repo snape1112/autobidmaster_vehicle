@@ -29,14 +29,12 @@ class LoadDataCommand extends Command
 
     public function __construct(EntityManagerInterface $entityManager)
     {
-        // 3. Update the value of the private entityManager variable through injection
         $this->entityManager = $entityManager;
 
         parent::__construct();
     }
     
     protected function configure(): void
-
     {
     }
 

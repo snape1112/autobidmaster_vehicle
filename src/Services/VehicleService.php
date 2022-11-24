@@ -22,7 +22,6 @@ class VehicleService
         $this->vehicleRepository = $vehicleRepository;
     }
 
-
     /**
      * @param mixed[] $params
      *

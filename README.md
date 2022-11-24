@@ -55,3 +55,16 @@ You will need to generate a basic landing page which will serve as an entry poin
 This project should contain everything that is needed to complete the task but you are free to add libraries and other
 tools that you would like to use to complete/enhance the project provided that symfony and react are still the primary frameworks.
 
+# What I Implemented
+
+## Added a new command `loaddata`
+
+## Added an endpoint to get vehicles list
+
+GET /vehicles
+  Query Parameters:
+    - search: Search vehicles who has the value in `vin`
+    - order: Sort vehicles by the given field. ex: `make`, `model` or `sale_date`
+    - direction: Order direction ex: `ASC` or `DESC`
+    - limit: Number of vehicles per page. Default value is 25
+    - offset: Offset of list. Default value is 0

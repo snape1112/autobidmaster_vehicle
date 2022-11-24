@@ -8,10 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
 
 /**
- * @method Vehicle|null find($id, $lockMode = null, $lockVersion = null)
- * @method Vehicle|null findOneBy(array $criteria, array $orderBy = null)
- * @method Vehicle[]    findAll()
- * @method Vehicle[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method QueryBuilder getList($params) Return query builder to get vehicle list for the given conditions
  */
 class VehicleRepository extends ServiceEntityRepository
 {
@@ -28,7 +25,7 @@ class VehicleRepository extends ServiceEntityRepository
         $search = $params['search'] ?? '';
         $order = $params['order'] ?? 'id';
         $direction = $params['direction'] ?? 'ASC';
-        $limit = $params['limit'] ?? 20;
+        $limit = $params['limit'] ?? 25;
         $offset = $params['offset'] ?? 0;
 
         return $this->createQueryBuilder('v')
